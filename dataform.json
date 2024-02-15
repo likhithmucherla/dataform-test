@@ -1,8 +1,8 @@
 {
-  "defaultSchema": "dataform",
+  "defaultSchema": "test",
   "assertionSchema": "dataform_assertions",
   "warehouse": "bigquery",
   "defaultDatabase": "trim-tide-410306",
-  "defaultLocation": "US"
+  "defaultLocation": "us-central1"
 }
     
