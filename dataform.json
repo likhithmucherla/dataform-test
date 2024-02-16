@@ -1,7 +1,7 @@
 {
-  "defaultSchema": "${DEFAULT_SCHEMA_ENV_VAR}",
-  "assertionSchema": "${ASSERTION_SCHEMA_ENV_VAR}",
-  "warehouse": "${WAREHOUSE_ENV_VAR}",
-  "defaultDatabase": "${DEFAULT_DATABASE_ENV_VAR}",
-  "defaultLocation": "${DEFAULT_LOCATION_ENV_VAR}"
+    "defaultSchema": "testschema",
+    "assertionSchema": "dataform_assertions",
+    "warehouse": "bigquery",
+    "defaultDatabase": "friendly-anthem-360408",
+    "defaultLocation": "EU"
 }
