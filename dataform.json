@@ -1,8 +1,7 @@
 {
-  "defaultSchema": "test",
-  "assertionSchema": "dataform_assertions",
-  "warehouse": "bigquery",
-  "defaultDatabase": "trim-tide-410306",
-  "defaultLocation": "EU"
+  "defaultSchema": "${DEFAULT_SCHEMA_ENV_VAR}",
+  "assertionSchema": "${ASSERTION_SCHEMA_ENV_VAR}",
+  "warehouse": "${WAREHOUSE_ENV_VAR}",
+  "defaultDatabase": "${DEFAULT_DATABASE_ENV_VAR}",
+  "defaultLocation": "${DEFAULT_LOCATION_ENV_VAR}"
 }
-    
