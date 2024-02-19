@@ -1,7 +1,7 @@
 {
-    "defaultSchema": "testschema",
-    "assertionSchema": "dataform_assertions",
+    "defaultSchema": "analytics_test",
+    "assertionSchema": "dataform_assertions_test",
     "warehouse": "bigquery",
-    "defaultDatabase": "friendly-anthem-360408",
+    "defaultDatabase": "trim-tide-410306",
     "defaultLocation": "EU"
 }
