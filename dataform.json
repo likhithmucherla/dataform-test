@@ -1,5 +1,5 @@
 {
-    "defaultSchema": "analytics_test",
+    "defaultSchema": "material",
     "assertionSchema": "dataform_assertions_test",
     "warehouse": "bigquery",
     "defaultDatabase": "trim-tide-410306",
