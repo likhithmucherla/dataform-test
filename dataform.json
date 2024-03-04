@@ -3,5 +3,6 @@
     "assertionSchema": "dataform_assertions_test",
     "warehouse": "bigquery",
     "defaultDatabase": "trim-tide-410306",
-    "defaultLocation": "EU"
+    "defaultLocation": "US",
+    "schemaSuffix": ""
 }

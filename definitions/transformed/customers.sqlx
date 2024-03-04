@@ -1,0 +1,51 @@
+config {
+    type: 'operations',
+    schema: 'transformed',
+    hasOutput: true,
+    tags: ['merge_transformed.customers','transformed.customers', 'transformed']
+}
+
+MERGE ${self()}trg
+USING
+    (
+        SELECT * except(row_rank)
+        FROM
+        (
+            SELECT
+                *,
+                row_number() OVER(PARTITION BY customer_no ORDER BY updated_on) row_rank
+            FROM
+                ${ref('raw', 'customers')}
+        )
+        WHERE row_rank = 1
+    ) src
+ON trg.customer_no=src.customer_no
+WHEN NOT MATCHED THEN
+INSERT 
+(	
+  customer_no,	
+  first_name,
+  last_name,
+  dwh_source_updated_on,
+  dwh_updated_on,	
+  address_id,
+  is_member
+)
+VALUES(
+    src.customer_no,	
+    src.first_name,
+    src.last_name,
+    updated_on,
+    CURRENT_TIMESTAMP,	
+    src.address_id,
+    src.is_member	
+)
+WHEN MATCHED THEN
+UPDATE 
+SET
+trg.first_name  = src.first_name,
+trg.last_name   = src.last_name, 
+trg.address_id  = src.address_id, 
+trg.is_member   = src.is_member,
+trg.dwh_source_updated_on = updated_on,
+trg.dwh_updated_on =   CURRENT_TIMESTAMP;

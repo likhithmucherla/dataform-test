@@ -1,0 +1,17 @@
+config {
+    type: 'operations',
+    schema: 'transformed',
+    tags: ['create_standardized.customers']
+}
+
+CREATE OR REPLACE TABLE `transformed.customers` (
+  customer_no INT64 NOT NULL,
+  first_name STRING,
+  last_name STRING,
+  address_id INT64,
+  is_member BOOLEAN,
+  dwh_created_on TIMESTAMP,
+  dwh_updated_on TIMESTAMP,
+  dwh_source_updated_on TIMESTAMP
+)
+;

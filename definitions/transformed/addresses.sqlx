@@ -1,0 +1,22 @@
+config {
+    type: 'incremental',
+    schema: 'transformed',
+    tags: ['transformed.addresses','incremental.addresses', 'transformed']
+}
+SELECT 
+    address_id,
+    full_address,
+    street,
+    block,
+    zipcode,
+    city,
+    state,
+    country,
+    is_current,
+    updated_on AS dwh_source_updated_on,
+    CURRENT_TIMESTAMP AS dwh_created_on,
+    CURRENT_TIMESTAMP AS dwh_updated_on
+FROM
+    ${ref("raw", "addresses")}
+    ${when(incremental(), `WHERE updated_on > (SELECT MAX(dwh_source_updated_on) FROM ${self()})`)}
+    
