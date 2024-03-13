@@ -1,0 +1,15 @@
+config {
+    type: "table",
+    schema: "modelled",
+    tags: ['modelled.cust_report']
+}
+
+SELECT
+    customer_no,
+    a.address_id
+FROM
+    ${ref('transformed', 'customers')} c
+LEFT JOIN
+    ${ref('transformed', 'addresses')} a
+ON 
+    c.address_id=a.address_id
